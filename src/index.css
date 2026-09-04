@@ -1,0 +1,160 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-heading: "Manrope", system-ui, sans-serif;
+  --font-display: "Manrope", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* neutrals - tinted with the RATRA logo navy (oklch 0.21 0.055 265) */
+  --color-ink: oklch(0.21 0.05 265);
+  --color-ink-soft: oklch(0.43 0.035 265);
+  --color-ink-faint: oklch(0.58 0.025 265);
+  --color-line: oklch(0.91 0.012 265);
+  --color-canvas: oklch(0.985 0.006 265);
+  --color-surface: oklch(1 0 0);
+
+  /* editorial-design aliases */
+  --color-background: var(--color-canvas);
+  --color-foreground: var(--color-ink);
+  --color-muted-foreground: var(--color-ink-soft);
+  --color-border: var(--color-line);
+  --color-primary: var(--color-fire-600);
+  --color-primary-foreground: oklch(0.99 0 0);
+
+  /* fire - from fire-monitoring client */
+  --color-fire-50: #fff2ee;
+  --color-fire-100: #ffe0d9;
+  --color-fire-400: #ff6a49;
+  --color-fire-600: #ec3013;
+  --color-fire-700: #c22910;
+  --color-fire-900: #7c1405;
+  --color-fire: var(--color-fire-600);
+
+  /* agriculture - palm oil & paddy green/earth */
+  --color-agri-50: #f0f9ec;
+  --color-agri-100: #dcf1cf;
+  --color-agri-400: #7cbb4e;
+  --color-agri-600: #4c8a2e;
+  --color-agri-700: #386c22;
+  --color-agri-900: #1f4012;
+  --color-crop: var(--color-agri-600);
+
+  /* disaster - climate blue */
+  --color-sky-50: #eef5ff;
+  --color-sky-100: #dbe9ff;
+  --color-sky-400: #5b93ef;
+  --color-sky-600: #2f66d0;
+  --color-sky-700: #234fa8;
+  --color-sky-900: #16305f;
+  --color-flood: var(--color-sky-600);
+
+  --shadow-soft: 0 1px 2px oklch(0.21 0.05 265 / 0.04), 0 12px 32px -12px oklch(0.21 0.05 265 / 0.12);
+  --shadow-lift: 0 4px 10px oklch(0.21 0.05 265 / 0.06), 0 24px 48px -16px oklch(0.21 0.05 265 / 0.22);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.dark {
+  --color-ink: oklch(0.95 0.008 265);
+  --color-ink-soft: oklch(0.74 0.02 265);
+  --color-ink-faint: oklch(0.55 0.02 265);
+  --color-line: oklch(1 0 0 / 0.1);
+  --color-canvas: oklch(0.17 0.02 265);
+  --color-surface: oklch(0.21 0.022 265);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-foreground);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--color-sky-100);
+  color: var(--color-sky-900);
+}
+
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+.hairline-grid {
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.hairline-diagonal {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-border) 0,
+    var(--color-border) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}
+
+.rise-in {
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+.ping-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: ping-pulse 2.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes ping-pulse {
+  0% { transform: scale(0.6); opacity: 0.7; }
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+.scan-sweep {
+  animation: scan-sweep 5s ease-in-out infinite;
+}
+
+@keyframes scan-sweep {
+  0% { transform: translateY(-100%); opacity: 0; }
+  15%, 60% { opacity: 1; }
+  100% { transform: translateY(280%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-sweep { animation: none; display: none; }
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
