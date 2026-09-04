@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { domains } from "@/lib/products"
 import { Reveal } from "./Reveal"
 
@@ -5,7 +6,7 @@ export function Products() {
   return (
     <section id="products" className="border-t border-border">
       <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
-        <Reveal className="grid grid-cols-1 gap-6 border-b border-border py-16 md:grid-cols-[1fr_20rem] md:items-end md:gap-12">
+        <Reveal className="grid grid-cols-1 gap-6 border-b border-border py-16 md:grid-cols-[1fr_24rem] md:items-end md:gap-12">
           <h2 className="text-4xl leading-tight font-semibold sm:text-5xl">
             Three domains.
             <br />
@@ -33,7 +34,10 @@ export function Products() {
               >
                 <div className="flex items-center gap-3">
                   <span className="label-mono">{d.id}</span>
-                  <d.icon className={`h-6 w-6 ${d.tone}`} strokeWidth={1.5} />
+                  <d.icon
+                    className={`h-6 w-6 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110 ${d.tone}`}
+                    strokeWidth={1.5}
+                  />
                 </div>
 
                 <div>
@@ -51,17 +55,21 @@ export function Products() {
                 </div>
 
                 <div className="flex flex-col justify-between gap-6 border-t border-border pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
-                  <div className="hairline-grid relative h-32 overflow-hidden rounded-md border border-border bg-surface/50">
+                  <div className="hairline-grid relative h-32 overflow-hidden rounded-md border border-border bg-surface/50 transition-transform duration-300 group-hover:scale-[1.02]">
                     {d.image ? (
                       <img src={d.image} alt={`${d.name} screenshot`} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
                     ) : (
                       <svg viewBox="0 0 300 120" className="absolute inset-0 h-full w-full" aria-hidden="true">
-                        <polyline
+                        <motion.polyline
                           points="0,96 30,88 60,92 90,70 120,78 150,54 180,62 210,40 240,46 270,26 300,18"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="2"
                           className={d.tone}
+                          initial={{ pathLength: 0 }}
+                          whileInView={{ pathLength: 1 }}
+                          viewport={{ once: true, margin: "-40px" }}
+                          transition={{ duration: 1.1, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                         />
                       </svg>
                     )}

@@ -18,7 +18,7 @@ const points = [
     value: 3,
     suffix: "",
     label: "Domains, one basemap",
-    body: "Fire, crop and flood data share the same drawing tools and access model — no switching platforms.",
+    body: "Fire, crop and hazard data share the same drawing tools and access model — no switching platforms.",
   },
 ]
 

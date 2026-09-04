@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { domains } from "@/lib/products"
 import { Reveal } from "./Reveal"
@@ -23,11 +24,13 @@ export function Showcase() {
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {domains.map((d, i) => (
             <Reveal key={d.id} delay={i * 0.08}>
-              <a
+              <motion.a
                 href={d.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface/40 transition-colors hover:bg-surface"
+                whileHover={{ y: -4, scale: 1.02 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface/40 shadow-none transition-[background-color,box-shadow] duration-300 hover:bg-surface hover:shadow-lg"
               >
                 <div className="hairline-grid relative aspect-[5/4] overflow-hidden border-b border-border bg-background/60">
                   {d.shot ? (
@@ -37,7 +40,7 @@ export function Showcase() {
                       <span
                         key={j}
                         style={{ left: `${l}%`, top: `${t}%` }}
-                        className={`absolute h-2 w-2 rounded-full bg-current ${d.tone}`}
+                        className={`ping-dot absolute h-2 w-2 rounded-full bg-current ${d.tone}`}
                       />
                     ))
                   )}
@@ -50,7 +53,7 @@ export function Showcase() {
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </div>
-              </a>
+              </motion.a>
             </Reveal>
           ))}
         </div>

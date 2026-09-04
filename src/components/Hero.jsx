@@ -5,7 +5,7 @@ import { HeroMap } from "./HeroMap"
 const widgetLegend = [
   ["Fire", "bg-fire"],
   ["Crops", "bg-crop"],
-  ["Flood", "bg-flood"],
+  ["Hazard", "bg-flood"],
 ]
 
 const widgetStats = [
@@ -54,7 +54,7 @@ export function Hero() {
             </a>
             <a
               href="#mission"
-              className="inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface"
+              className="inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:bg-surface"
             >
               About RATRA
             </a>

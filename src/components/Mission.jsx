@@ -34,7 +34,7 @@ export function Mission() {
           </p>
           <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-4">
             {pillars.map(([t, s]) => (
-              <div key={t} className="bg-background px-4 py-6">
+              <div key={t} className="bg-background px-4 py-6 transition-colors duration-300 hover:bg-surface">
                 <div className="font-display text-sm font-semibold">{t}</div>
                 <div className="mt-2 text-xs text-muted-foreground">{s}</div>
               </div>
