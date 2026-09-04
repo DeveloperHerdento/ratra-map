@@ -1,4 +1,4 @@
-import { Flame, Sprout, Waves } from "lucide-react"
+import { Flame, Sprout, TriangleAlert } from "lucide-react"
 
 // Drop screenshots into public/screenshots/ and set the paths below.
 //   image -> the small "Signal" thumb in the Products list (~960x384px, ~5:2, jpg/png/webp)
@@ -45,15 +45,15 @@ export const domains = [
     id: "03",
     slug: "disaster",
     name: "AI Disaster Mitigation",
-    icon: Waves,
+    icon: TriangleAlert,
     tone: "text-flood",
     dot: "bg-flood",
     line: "Real-time hazard layers for faster decisions.",
-    body: "An AI-assisted platform layering flood, landslide and other hazards on one shared map, giving response teams a single situational picture during fast-moving events.",
-    points: ["Real-time hazard layers", "Multiple risk sources, one map", "AI-assisted mitigation view", "Shared situational picture"],
+    body: "An AI-assisted platform layering flood, rainfall, typhoon and earthquake hazards on one shared map, giving response teams a single situational picture during fast-moving events.",
+    points: ["Flood & rainfall forecasting", "Typhoon path tracking", "Earthquake shake-intensity maps", "AI-assisted mitigation view"],
     meta: [
+      ["4", "Hazard types"],
       ["Real-time", "Layer sync"],
-      ["Response teams", "Built for"],
     ],
     href: "https://safeus.jp",
     image: null,
