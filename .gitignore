@@ -1,2 +1,17 @@
-/web-app
+# Dependencies
 /node_modules
+
+# Build output (Vercel builds from source)
+/dist
+*.tsbuildinfo
+
+# Environment (no env vars today; guard against accidental commits)
+.env*
+!.env*.example
+
+# Tooling
+.vercel
+.DS_Store
+
+# Local copies of other repos (not part of this project)
+/web-app
