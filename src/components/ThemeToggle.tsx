@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { Moon, Sun } from "lucide-react"
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
-  const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"))
+  const [dark, setDark] = useState(() =>
+    document.documentElement.classList.contains("dark"),
+  );
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark)
-    localStorage.setItem("ratra-theme", dark ? "dark" : "light")
-  }, [dark])
+    document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("ratra-theme", dark ? "dark" : "light");
+  }, [dark]);
 
   return (
     <button
@@ -30,5 +32,5 @@ export function ThemeToggle() {
         </motion.span>
       </AnimatePresence>
     </button>
-  )
+  );
 }

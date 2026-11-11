@@ -1,11 +1,11 @@
-import { Reveal } from "./Reveal"
+import { Reveal } from "./Reveal";
 
 const pillars = [
   ["Detect", "Hotspots from orbit"],
   ["Delineate", "Fields and areas"],
   ["Overlay", "Hazards in context"],
   ["Alert", "Teams on the ground"],
-]
+];
 
 export function Mission() {
   return (
@@ -28,13 +28,17 @@ export function Mission() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="max-w-md text-lg leading-relaxed text-muted-foreground">
-            RATRA takes satellite imagery most people never see and turns it into a simple map.
-            Fire teams, plantation operators and disaster coordinators all look at the same
-            up-to-date picture — no mapping expertise required.
+            RATRA takes satellite imagery most people never see and turns it
+            into a simple map. Fire teams, plantation operators and disaster
+            coordinators all look at the same up-to-date picture — no mapping
+            expertise required.
           </p>
           <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-4">
             {pillars.map(([t, s]) => (
-              <div key={t} className="bg-background px-4 py-6 transition-colors duration-300 hover:bg-surface">
+              <div
+                key={t}
+                className="bg-background px-4 py-6 transition-colors duration-300 hover:bg-surface"
+              >
                 <div className="font-display text-sm font-semibold">{t}</div>
                 <div className="mt-2 text-xs text-muted-foreground">{s}</div>
               </div>
@@ -43,5 +47,5 @@ export function Mission() {
         </Reveal>
       </div>
     </section>
-  )
+  );
 }

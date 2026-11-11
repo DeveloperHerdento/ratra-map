@@ -1,5 +1,5 @@
-import { Reveal } from "./Reveal"
-import { StatCounter } from "./StatCounter"
+import { Reveal } from "./Reveal";
+import { StatCounter } from "./StatCounter";
 
 const points = [
   {
@@ -20,13 +20,16 @@ const points = [
     label: "Domains, one basemap",
     body: "Fire, crop and hazard data share the same drawing tools and access model — no switching platforms.",
   },
-]
+];
 
 export function Evidence() {
   return (
     <section className="border-t border-border">
       <div className="mx-auto flex max-w-[88rem] px-6 lg:px-10">
-        <div className="hairline-diagonal hidden w-16 shrink-0 border-l border-border lg:block" aria-hidden="true" />
+        <div
+          className="hairline-diagonal hidden w-16 shrink-0 border-l border-border lg:block"
+          aria-hidden="true"
+        />
 
         <div className="min-w-0 flex-1 border-x border-border bg-background px-6 py-24 lg:px-10">
           <Reveal>
@@ -43,14 +46,19 @@ export function Evidence() {
                   <StatCounter value={p.value} suffix={p.suffix} inline />
                 </div>
                 <div className="label-mono mt-2">{p.label}</div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {p.body}
+                </p>
               </Reveal>
             ))}
           </div>
         </div>
 
-        <div className="hairline-diagonal hidden w-16 shrink-0 border-r border-border lg:block" aria-hidden="true" />
+        <div
+          className="hairline-diagonal hidden w-16 shrink-0 border-r border-border lg:block"
+          aria-hidden="true"
+        />
       </div>
     </section>
-  )
+  );
 }

@@ -1,18 +1,18 @@
-import { ArrowUpRight, Crosshair, Satellite } from "lucide-react"
-import { StatCounter } from "./StatCounter"
-import { HeroMap } from "./HeroMap"
+import { ArrowUpRight, Crosshair, Satellite } from "lucide-react";
+import { StatCounter } from "./StatCounter";
+import { HeroMap } from "./HeroMap";
 
-const widgetLegend = [
+const widgetLegend: [label: string, dotClass: string][] = [
   ["Fire", "bg-fire"],
   ["Crops", "bg-crop"],
   ["Hazard", "bg-flood"],
-]
+];
 
-const widgetStats = [
+const widgetStats: [value: number, suffix: string, label: string][] = [
   [3, "", "Live products"],
   [5, "", "Field map layers"],
   [24, "/7", "Downlinked"],
-]
+];
 
 export function Hero() {
   return (
@@ -41,8 +41,9 @@ export function Hero() {
             <span className="text-primary">safer &amp; smarter future.</span>
           </h1>
           <p className="mt-9 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            RATRA watches the ground from space, so teams can see fire hotspots, plantation
-            health and disaster-response areas on one simple map — updated as it happens.
+            RATRA watches the ground from space, so teams can see fire hotspots,
+            plantation health and disaster-response areas on one simple map —
+            updated as it happens.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
@@ -98,5 +99,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

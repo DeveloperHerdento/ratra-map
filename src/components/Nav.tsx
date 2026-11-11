@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react"
-import { ArrowUpRight } from "lucide-react"
-import { ThemeToggle } from "./ThemeToggle"
-import { cn } from "@/lib/utils"
+import { useEffect, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
+import { cn } from "@/lib/utils";
 
 const links = [
   ["Products", "#products"],
   ["Mission", "#mission"],
   ["Showcase", "#showcase"],
-]
+];
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header
@@ -25,17 +25,24 @@ export function Nav() {
         "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
         scrolled
           ? "border-border bg-background/85 shadow-[0_1px_0_0_rgba(0,0,0,0.02)] backdrop-blur-xl"
-          : "border-transparent bg-background/40 backdrop-blur-sm"
+          : "border-transparent bg-background/40 backdrop-blur-sm",
       )}
     >
       <div
         className={cn(
           "mx-auto flex max-w-[88rem] items-center justify-between px-6 transition-[height] duration-300 lg:px-10",
-          scrolled ? "h-14" : "h-16"
+          scrolled ? "h-14" : "h-16",
         )}
       >
-        <a href="#top" className="flex items-center transition-transform duration-300 hover:scale-[1.02]">
-          <img src="/logotype.webp" alt="RATRA Maps" className="h-7 w-auto dark:brightness-0 dark:invert" />
+        <a
+          href="#top"
+          className="flex items-center transition-transform duration-300 hover:scale-[1.02]"
+        >
+          <img
+            src="/logotype.webp"
+            alt="RATRA Maps"
+            className="h-7 w-auto dark:brightness-0 dark:invert"
+          />
         </a>
         <nav className="hidden items-center gap-9 md:flex">
           {links.map(([label, href]) => (
@@ -61,5 +68,5 @@ export function Nav() {
         </div>
       </div>
     </header>
-  )
+  );
 }
