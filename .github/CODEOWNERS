@@ -1,0 +1,3 @@
+# Auto-requests a reviewer for every PR once branch protection enables
+# "Require review from Code Owners". Replace with real GitHub handles.
+* @<team-or-owner>
