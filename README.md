@@ -41,7 +41,7 @@ No `.env` is needed.
 
 ## Common tasks
 
-There is no test suite yet (a Vitest smoke test is planned). Checks: lint, format:check, typecheck, build.
+Checks (run by CI on every PR, see `.github/workflows/ci.yml`): lint, format:check, typecheck, test, build. Tests are a Vitest smoke test (`src/App.test.tsx`) with `react-leaflet` mocked.
 
 | Task                                                      | Command                                   |
 | --------------------------------------------------------- | ----------------------------------------- |
@@ -49,6 +49,7 @@ There is no test suite yet (a Vitest smoke test is planned). Checks: lint, forma
 | Lint (ESLint)                                             | `npm run lint`                            |
 | Format check / fix (Prettier)                             | `npm run format:check` / `npm run format` |
 | Type check                                                | `npm run typecheck`                       |
+| Tests (Vitest, jsdom)                                     | `npm test`                                |
 | Production build (`tsc --noEmit && vite build` → `dist/`) | `npm run build`                           |
 | Preview the build                                         | `npm run preview`                         |
 
@@ -83,4 +84,4 @@ Vercel builds from git. Production branch is `main`; every pull request gets a V
 
 ## Contributing
 
-Conventional Commits; open a PR and squash-merge into `main`. Run lint, format:check, typecheck and build before opening the PR.
+Conventional Commits; open a PR and squash-merge into `main`. Run lint, format:check, typecheck, test and build before opening the PR (CI runs the same checks).
